@@ -90,3 +90,10 @@ Container::getInstance()
             'view' => require dirname(__DIR__).'/config/view.php',
         ]);
     }, true);
+
+/**
+ * Require all metaboxes files.
+ */
+foreach (glob(dirname(__DIR__) . "/resources/meta/*.php") as $filename) {
+    require_once $filename;
+}
