@@ -1,25 +1,32 @@
-@import "common/variables";
+@charset "UTF-8";
 
-/** Import everything from autoload */
-@import "./autoload/**/*";
+/** Import abstracts */
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "abstracts/variables";
+@import "abstracts/breakpoints";
 
-/**
- * Import npm dependencies
- *
- * Prefix your imports with `~` to grab from node_modules/
- * @see https://github.com/webpack-contrib/sass-loader#imports
- */
-// @import "~some-node-module";
+/** Import vendor */
+@import "vendors/hamburgers";
 
-/** Import theme styles */
-@import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/wp-classes";
+/** Import base */
+@import "base/fonts";
+@import "base/typography";
+@import "base/helpers";
+@import "base/base";
+
+/** Import layouts */
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/tinymce";
+
+/** Import components */
+@import "components/buttons";
+
+/** Import pages */
+
+/** Import themes */
+@import "themes/default";

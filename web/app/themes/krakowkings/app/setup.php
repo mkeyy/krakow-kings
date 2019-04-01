@@ -70,6 +70,11 @@ add_action('after_setup_theme', function () {
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
     add_editor_style(asset_path('styles/main.css'));
+
+    /**
+     * Disable Gutenberg.
+     */
+    add_filter('use_block_editor_for_post', '__return_false');
 }, 20);
 
 /**

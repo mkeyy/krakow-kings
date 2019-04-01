@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+  @include('template-partials.page-header')
 
   @if (!have_posts())
     <div class="alert alert-warning">
@@ -11,7 +11,7 @@
   @endif
 
   @while(have_posts()) @php the_post() @endphp
-    @include('partials.content-search')
+    @include('template-partials.content-search')
   @endwhile
 
   {!! get_the_posts_navigation() !!}
