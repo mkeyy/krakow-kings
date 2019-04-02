@@ -4,8 +4,7 @@
   <body @php body_class() @endphp>
     @php do_action('get_header') @endphp
     @include('header')
-    <div class="wrap container" role="document">
-      <div class="content">
+    <div class="page" role="document">
         <main class="main">
           @yield('content')
         </main>
@@ -14,7 +13,6 @@
             @include('sidebar')
           </aside>
         @endif
-      </div>
     </div>
     @php do_action('get_footer') @endphp
     @include('footer')

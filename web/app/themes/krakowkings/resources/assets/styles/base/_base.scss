@@ -1,3 +1,26 @@
+a,
+button {
+  @include on-event(true) {
+    outline: none;
+    text-decoration: none;
+  }
+
+  cursor: pointer;
+}
+
+img {
+  @include size(100%, auto);
+
+  object-fit: contain;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 .list-unstyled {
   list-style: none;
   margin: 0;

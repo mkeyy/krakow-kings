@@ -1,0 +1,37 @@
+.main-header__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header__brand {
+  @include size(100%, auto);
+
+  max-width: 100px;
+}
+
+.hamburger {
+  position: relative;
+  z-index: 15;
+}
+
+.main-header__menu {
+  @include size(100%);
+
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: grey;
+}
+
+.main-header__nav {
+  @extend .list-unstyled;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: $max-width;
+}
