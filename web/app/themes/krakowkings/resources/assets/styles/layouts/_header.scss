@@ -1,3 +1,7 @@
+.main-header {
+  margin: 15px 0;
+}
+
 .main-header__navbar {
   display: flex;
   justify-content: space-between;
@@ -68,17 +72,17 @@
 
       &::after {
         @include pseudo();
-        @include size(calc(100% + 20px), 0);
+        @include size(0, 3px);
 
-        bottom: 0;
+        top: 28px;
         left: -10px;
         z-index: -1;
         background-color: color("kings-gold");
-        transition: height 300ms ease-in-out;
+        transition: width 300ms ease-in-out;
       }
 
       &:hover::after {
-        height: 100%;
+        width: calc(100% + 20px);
       }
     }
   }
