@@ -29,6 +29,11 @@
   @return asset($base, "fonts/", $path);
 }
 
+/// Return color
+@function color($color, $arr: $theme-colors) {
+  @return map-get($arr, $color);
+}
+
 // Bootstrap functions
 //
 // Utility mixins and functions for evaluating source code across our variables, maps, and mixins.

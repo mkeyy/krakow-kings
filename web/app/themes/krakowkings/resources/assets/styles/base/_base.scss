@@ -3,6 +3,7 @@ button {
   @include on-event(true) {
     outline: none;
     text-decoration: none;
+    color: color("kings-black");
   }
 
   cursor: pointer;

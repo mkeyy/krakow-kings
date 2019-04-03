@@ -4,7 +4,7 @@
             <a class="main-header__brand" href="{{ home_url('/') }}"><img src="@asset('images/logo.png')"
                                                                      alt="Kraków Football Kings"/></a>
             <div class="main-header__content">
-                <button id="primaryNavigation" class="hamburger hamburger--spin" type="button"
+                <button id="primaryNavigation" class="hamburger hamburger--squeeze main-header__hamburger" type="button"
                         aria-label="Menu">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -16,6 +16,10 @@
                         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => null, 'menu_class' =>
                         'main-header__nav']) !!}
                     @endif
+                </div>
+
+                <div class="main-header__socials">
+
                 </div>
             </div>
         </nav>
