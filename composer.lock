@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe0e5b235455cbf7093ebb570b384ffd",
+    "hash": "8f70cc4496603907063f2222468b9e6f",
+    "content-hash": "4c53eb4fb429a95ac8c66de35f7925fd",
     "packages": [
         {
             "name": "composer/installers",
@@ -124,23 +125,24 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-08-27T06:10:37+00:00"
+            "time": "2018-08-27 06:10:37"
         },
         {
             "name": "oscarotero/env",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/env.git",
-                "reference": "0f676e41d758fa984806c32e27f0cf7afa63d8db"
+                "reference": "4ab45ce5c1f2c62549208426bfa20a3d5fa008c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/env/zipball/0f676e41d758fa984806c32e27f0cf7afa63d8db",
-                "reference": "0f676e41d758fa984806c32e27f0cf7afa63d8db",
+                "url": "https://api.github.com/repos/oscarotero/env/zipball/4ab45ce5c1f2c62549208426bfa20a3d5fa008c6",
+                "reference": "4ab45ce5c1f2c62549208426bfa20a3d5fa008c6",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
                 "php": ">=5.2"
             },
             "type": "library",
@@ -166,7 +168,7 @@
             "keywords": [
                 "env"
             ],
-            "time": "2017-07-17T20:41:59+00:00"
+            "time": "2019-04-03 18:28:43"
         },
         {
             "name": "roots/wordpress",
@@ -204,7 +206,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-03-13T14:18:06+00:00"
+            "time": "2019-03-13 14:18:06"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -260,7 +262,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2018-12-10T00:22:15+00:00"
+            "time": "2018-12-10 00:22:15"
         },
         {
             "name": "roots/wp-config",
@@ -302,7 +304,7 @@
                 }
             ],
             "description": "Collect configuration values and safely define() them",
-            "time": "2018-08-10T14:18:38+00:00"
+            "time": "2018-08-10 14:18:38"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -359,7 +361,7 @@
             "keywords": [
                 "wordpress wp bcrypt password"
             ],
-            "time": "2016-03-01T16:27:06+00:00"
+            "time": "2016-03-01 16:27:06"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -417,7 +419,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-02-06 07:57:58"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -468,7 +470,27 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-01-29T11:11:52+00:00"
+            "time": "2019-01-29 11:11:52"
+        },
+        {
+            "name": "wpackagist-plugin/regenerate-thumbnails",
+            "version": "3.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/regenerate-thumbnails/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip?timestamp=1546642223",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
         }
     ],
     "packages-dev": [
@@ -675,7 +697,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2019-03-28T22:30:08+00:00"
+            "time": "2019-03-28 22:30:08"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -726,7 +748,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-03-19T03:22:27+00:00"
+            "time": "2019-03-19 03:22:27"
         }
     ],
     "aliases": [],

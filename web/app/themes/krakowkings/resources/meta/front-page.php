@@ -1,22 +1,22 @@
 <?php
-add_action('cmb2_admin_init', 'krakowkings_front_page_metabox');
+add_action('cmb2_admin_init', 'kings_front_page_metabox');
 /**
  * Hook in and add metabox. Can only happen on the 'cmb2_admin_init' or 'cmb2_init' hook.
  */
-function krakowkings_front_page_metabox()
+function kings_front_page_metabox()
 {
-    $prefix = '_krakowkings_front_page_';
+    $prefix = '_kings_front_page_';
     $metabox1 = new_cmb2_box([
         'id' => $prefix . 'main_box',
-        'title' => esc_html__('Main', 'krakowkings'),
+        'title' => esc_html__('Main', 'kings'),
         'object_types' => ['page'],
         'priority' => 'high',
         'show_on' => array('key' => 'id', 'value' => get_option('page_on_front')),
     ]);
     $metabox1->add_field([
-        'name' => esc_html__('Tytuł', 'krakowkings'),
-        'id' => $prefix . 'heading',
-        'type' => 'text',
+        'name' => esc_html__('Video', 'kings'),
+        'id' => $prefix . 'video',
+        'type' => 'file',
     ]);
 }
 

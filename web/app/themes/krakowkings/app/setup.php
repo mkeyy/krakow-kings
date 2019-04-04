@@ -7,6 +7,7 @@ use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
+
 /**
  * Theme assets
  */
@@ -46,6 +47,14 @@ add_action('after_setup_theme', function () {
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage')
     ]);
+
+    /**
+     * Enable post thumbnails
+     * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+     */
+    add_theme_support('post-thumbnails');
+
+    add_image_size('logo', 100, 100, false);
 
     /**
      * Enable post thumbnails
@@ -135,3 +144,26 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+/**
+ * Wrapper function around cmb2_get_option
+ * @since  0.1.0
+ * @param  string $key     Options array key
+ * @param  mixed  $default Optional default value
+ * @return mixed           Option value
+ */
+function kings_get_option( $key = '', $default = false ) {
+    if ( function_exists( 'cmb2_get_option' ) ) {
+        // Use cmb2_get_option as it passes through some key filters.
+        return cmb2_get_option( 'kings_options', $key, $default );
+    }
+    // Fallback to get_option if CMB2 is not loaded yet.
+    $opts = get_option( 'kings_options', $default );
+    $val = $default;
+    if ( 'all' == $key ) {
+        $val = $opts;
+    } elseif ( is_array( $opts ) && array_key_exists( $key, $opts ) && false !== $opts[ $key ] ) {
+        $val = $opts[ $key ];
+    }
+    return $val;
+}

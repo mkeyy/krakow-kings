@@ -1,12 +1,18 @@
+@php
+    $logo = wp_get_attachment_image_url(\App\kings_get_option('logo_id'), 'logo', false);
+    $facebook = \App\kings_get_option('facebook');
+    $instagram = \App\kings_get_option('instagram');;
+@endphp
+
 <header class="main-header">
     <div class="container">
         <nav class="main-header__navbar">
-            <a class="main-header__brand" href="{{ home_url('/') }}"><img src="@asset('images/logo.png')"
+            <a class="main-header__brand" href="{{ home_url('/') }}"><img src="{{ $logo }}"
                                                                           alt="Kraków Football Kings"/></a>
             <div class="main-header__content">
                 <div class="main-header__socials">
-                    <a class="socials-icon ic-instagram" href="https://www.instagram.com/kingskrakow"><i class="fab fa-instagram"></i></a>
-                    <a class="socials-icon ic-facebook" href=""><i class="fab fa-facebook"></i></a>
+                    <a class="socials-icon ic-instagram" href="{{ $instagram}}" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="socials-icon ic-facebook" href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
 
                 <button id="primaryNavigation" class="hamburger hamburger--squeeze main-header__hamburger" type="button"
@@ -23,8 +29,8 @@
                     @endif
 
                     <div class="main-header__socials">
-                        <a href="https://www.instagram.com/kingskrakow"><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-facebook"></i></a>
+                        <a href="{{ $instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
