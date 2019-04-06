@@ -9,9 +9,31 @@
 }
 
 .main-header__brand {
-  @include size(100%, auto);
+  display: flex;
+  align-items: center;
 
-  max-width: 100px;
+  & > img {
+    max-width: 70px;
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+
+.main-header__brand-title {
+  display: block;
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  border-left: 1px solid color("kings-gold");
+  width: 60px;
+  padding: 0 10px;
+  word-break: break-word;
+
+  strong {
+    color: color("kings-gold");
+    font-weight: 500;
+  }
 }
 
 .main-header__content {
@@ -20,6 +42,8 @@
 }
 
 .main-header__socials {
+  display: flex;
+
   .main-header__content & {
     padding: 5px 15px;
     border-right: 1px solid color("kings-black");
@@ -52,7 +76,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: color("kings-dark");
+  background-color: rgba(color("kings-dark"), 0.8);
 }
 
 .main-header__nav {

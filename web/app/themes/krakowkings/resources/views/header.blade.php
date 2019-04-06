@@ -7,12 +7,14 @@
 <header class="main-header">
     <div class="container">
         <nav class="main-header__navbar">
-            <a class="main-header__brand" href="{{ home_url('/') }}"><img src="{{ $logo }}"
-                                                                          alt="Kraków Football Kings"/></a>
+            <a class="main-header__brand" href="{{ home_url('/') }}">
+                <img src="{{ $logo }}" alt="Kraków Football Kings"/>
+                <span class="main-header__brand-title">Kraków Football <strong>Kings</strong></span>
+            </a>
             <div class="main-header__content">
                 <div class="main-header__socials">
-                    <a class="socials-icon ic-instagram" href="{{ $instagram}}" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a class="socials-icon ic-facebook" href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                    @if(!empty($instagram)) <a class="socials-icon ic-instagram" href="{{ $instagram}}" target="_blank"><i class="fab fa-instagram"></i></a> @endif
+                    @if(!empty($facebook)) <a class="socials-icon ic-facebook" href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a> @endif
                 </div>
 
                 <button id="primaryNavigation" class="hamburger hamburger--squeeze main-header__hamburger" type="button"
@@ -29,8 +31,8 @@
                     @endif
 
                     <div class="main-header__socials">
-                        <a href="{{ $instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                        @if(!empty($instagram)) <a href="{{ $instagram }}" target="_blank"><i class="fab fa-instagram"></i></a> @endif
+                        @if(!empty($facebook)) <a href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a> @endif
                     </div>
                 </div>
             </div>
