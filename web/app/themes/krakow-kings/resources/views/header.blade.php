@@ -1,7 +1,8 @@
 @php
     $logo = wp_get_attachment_image_url(\App\kings_get_option('logo_id'), 'logo', false);
     $facebook = \App\kings_get_option('facebook');
-    $instagram = \App\kings_get_option('instagram');;
+    $instagram = \App\kings_get_option('instagram');
+    $icon = \App\kings_get_option('icon');
 @endphp
 
 <header class="main-header">
@@ -23,6 +24,8 @@
                     <span class="hamburger-inner"></span>
                 </span>
                 </button>
+
+                <?= assetSvg('ic-mobile', 'ic-mobile'); ?>
 
                 <div class="main-header__menu js-menu">
                     @if (has_nav_menu('primary_navigation'))

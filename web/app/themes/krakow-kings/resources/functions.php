@@ -8,6 +8,28 @@ use Roots\Sage\Config;
 use Roots\Sage\Container;
 
 /**
+ * Basic Constants
+ */
+
+define('IVN_THEME_DIR', trailingslashit(get_template_directory()));
+define('IVN_THEME_URI', trailingslashit(get_template_directory_uri()));
+
+define('IVN_INC_DIR', trailingslashit(IVN_THEME_DIR . 'includes'));
+define('IVN_INC_URI', trailingslashit(IVN_THEME_URI . 'includes'));
+
+/**
+ * Files to include
+ */
+
+$IVN_Includes = array(
+    IVN_INC_DIR . 'custom.php',
+);
+
+foreach ($IVN_Includes as $IVN_Include) {
+    require($IVN_Include);
+}
+
+/**
  * Helper function for prettying up errors
  * @param string $message
  * @param string $subtitle

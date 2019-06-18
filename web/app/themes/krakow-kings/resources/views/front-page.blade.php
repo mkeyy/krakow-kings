@@ -7,7 +7,6 @@
 
 @section('content')
     <div class="front-page">
-        <video class="front-page__video" src="{{ $video }}" autoplay muted loop poster="{{ $video }}">
-        </video>
+        <video class="front-page__video" src="{{ $video }}" autoplay muted loop poster="{{ $video }}"></video>
     </div>
 @endsection
