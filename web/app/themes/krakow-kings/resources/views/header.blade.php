@@ -4,7 +4,7 @@
 
 <header class="kk-header">
     <nav class="kk-header__navbar">
-        <a class="kk-header__brand" href="{{ home_url('/') }}">Kraków Kings&#8482;</a>
+        <a class="kk-header__brand" href="{{ home_url('/') }}">Kraków Football Kings&#8482;</a>
         <div class="kk-header__content">
             <div class="kk-header__socials">
                 @if(!empty($instagram)) <a class="kk-social-icon ic-instagram" href="{{ $instagram}}"

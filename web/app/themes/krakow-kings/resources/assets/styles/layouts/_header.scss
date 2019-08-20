@@ -22,7 +22,7 @@
 
   &::before {
     @include kk-pseudo(inline-block, relative);
-    @include kk-size(100px, 1px);
+    @include kk-size(60px, 1px);
 
     margin: -3px 20px 0 -20px;
     background-color: $primary-color;

@@ -3,5 +3,7 @@
 }
 
 .kk-homepage__video {
+  @include kk-size(100%, auto);
+
   object-fit: cover;
 }
