@@ -1,9 +1,12 @@
 $theme-colors: (
-  kings-black: #000,
-  kings-white: #fff,
-  kings-dark: #1c1e22,
-  kings-gold: #cda153,
+  kk-black: #000,
+  kk-white: #fff,
+  kk-blue: #36719c,
+  kk-gold: #ffe263,
 );
+
+$primary-color: map-get($theme-colors, kk-black);
+$secondary-color: map-get($theme-colors, kk-gold);
 
 /// Container's maximum width
 /// @type Length

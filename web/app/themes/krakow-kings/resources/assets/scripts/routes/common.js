@@ -3,11 +3,13 @@ export default {
     handleNavbarCollapse();
 
     function handleNavbarCollapse() {
-      let $hamburger = $('#primaryNavigation');
+      let $hamburger = $('.kk-header__hamburger');
 
       $hamburger.on('click', function() {
+        let target = $(this).data('target');
+
         $(this).toggleClass('is-active');
-        $(this).siblings('.js-menu').fadeToggle(300);
+        $('#' + target).toggleClass('kk-slide-in');
       });
     }
   },

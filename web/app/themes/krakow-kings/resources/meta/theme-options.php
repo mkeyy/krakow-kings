@@ -15,34 +15,45 @@ function kings_register_theme_options_metabox()
     /**
      * Registers options page menu item and form.
      */
-    $cmb_options = new_cmb2_box(array(
+    $options = new_cmb2_box(array(
         'id' => 'kings_option_metabox',
         'title' => esc_html__('Options', 'kings'),
         'object_types' => array('options-page'),
         'option_key' => 'kings_options', // The option key and admin menu page slug.
-        // 'icon_url'        => 'dashicons-palmtree', // Menu icon. Only applicable if 'parent_slug' is left empty.
     ));
     /*
      * Options fields ids only need
      * to be unique within this box.
      * Prefix is not needed.
      */
-    $cmb_options->add_field(array(
+    $options->add_field(array(
         'name' => __('Logo', 'kings'),
         'desc' => __('Website logo', 'kings'),
         'id' => 'logo',
         'type' => 'file'
     ));
-    $cmb_options->add_field(array(
-        'name' => __('Facebook', 'kings'),
-        'desc' => __('Facebook page link', 'kings'),
-        'id' => 'facebook',
+    $socials = $options->add_field(array(
+        'id' => 'socials',
+        'type' => 'group',
+        'description' => esc_html__('Socials Links', 'kings'),
+        'options' => array(
+            'group_title' => esc_html__('Social {#}', 'kings'),
+            'add_button' => esc_html__('Add another social', 'kings'),
+            'remove_button' => esc_html__('Delete social', 'kings'),
+            'sortable' => true,
+            'closed' => true,
+        ),
+    ));
+    $options->add_group_field($socials, array(
+        'name' => esc_html__('Name', 'kings'),
+        'description' => esc_html__('Social name', 'kings'),
+        'id' => 'name',
         'type' => 'text'
     ));
-    $cmb_options->add_field(array(
-        'name' => __('Instagram', 'kings'),
-        'desc' => __('Instagram page link', 'kings'),
-        'id' => 'instagram',
+    $options->add_group_field($socials, array(
+        'name' => esc_html__('Link', 'kings'),
+        'description' => esc_html__('Social page link', 'kings'),
+        'id' => 'link',
         'type' => 'text'
     ));
 }

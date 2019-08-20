@@ -6,7 +6,7 @@
 @endphp
 
 @section('content')
-    <div class="front-page">
-        <video class="front-page__video" src="{{ $video }}" autoplay muted loop poster="{{ $video }}"></video>
-    </div>
+    <section class="kk-page kk-homepage">
+        <video class="kk-homepage__video" src="{{ $video }}" autoplay muted loop poster="{{ $video }}"></video>
+    </section>
 @endsection

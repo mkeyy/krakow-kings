@@ -1,0 +1,7 @@
+.kk-homepage {
+  @include kk-size(100%, auto);
+}
+
+.kk-homepage__video {
+  object-fit: cover;
+}

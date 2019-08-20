@@ -1,45 +1,34 @@
 @php
     $logo = wp_get_attachment_image_url(\App\kings_get_option('logo_id'), 'logo', false);
-    $facebook = \App\kings_get_option('facebook');
-    $instagram = \App\kings_get_option('instagram');
-    $icon = \App\kings_get_option('icon');
 @endphp
 
-<header class="main-header">
-    <div class="container">
-        <nav class="main-header__navbar">
-            <a class="main-header__brand" href="{{ home_url('/') }}">
-                <img src="{{ $logo }}" alt="Kraków Football Kings"/>
-                <span class="main-header__brand-title">Kraków Football <strong>Kings</strong></span>
-            </a>
-            <div class="main-header__content">
-                <div class="main-header__socials">
-                    @if(!empty($instagram)) <a class="socials-icon ic-instagram" href="{{ $instagram}}" target="_blank"><i class="fab fa-instagram"></i></a> @endif
-                    @if(!empty($facebook)) <a class="socials-icon ic-facebook" href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a> @endif
-                </div>
-
-                <button id="primaryNavigation" class="hamburger hamburger--squeeze main-header__hamburger" type="button"
-                        aria-label="Menu">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-                </button>
-
-                <?= assetSvg('ic-mobile', 'ic-mobile'); ?>
-
-                <div class="main-header__menu js-menu">
-                    @if (has_nav_menu('primary_navigation'))
-                        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => null, 'menu_class' =>
-                        'main-header__nav']) !!}
-                    @endif
-
-                    <div class="main-header__socials">
-                        @if(!empty($instagram)) <a href="{{ $instagram }}" target="_blank"><i class="fab fa-instagram"></i></a> @endif
-                        @if(!empty($facebook)) <a href="{{ $facebook }}" target="_blank"><i class="fab fa-facebook"></i></a> @endif
-                    </div>
-                </div>
+<header class="kk-header">
+    <nav class="kk-header__navbar">
+        <a class="kk-header__brand" href="{{ home_url('/') }}">Kraków Kings&#8482;</a>
+        <div class="kk-header__content">
+            <div class="kk-header__socials">
+                @if(!empty($instagram)) <a class="kk-social-icon ic-instagram" href="{{ $instagram}}"
+                                           target="_blank"><i
+                            class="fab fa-instagram"></i></a> @endif
+                @if(!empty($facebook)) <a class="kk-social-icon ic-facebook" href="{{ $facebook }}" target="_blank"><i
+                            class="fab fa-facebook"></i></a> @endif
             </div>
-        </nav>
-    </div>
+
+            <button class="kk-header__hamburger hamburger hamburger--collapse" type="button"
+                    aria-label="Menu" data-target="primary-navigation">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+            </button>
+
+            <div id="primary-navigation" class="kk-menu js-menu">
+                @if (has_nav_menu('primary_navigation'))
+                    {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => null, 'menu_class' =>
+                    'kk-menu__nav']) !!}
+                @endif
+            </div>
+            </a>
+        </div>
+    </nav>
 </header>
 

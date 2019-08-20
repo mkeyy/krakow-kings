@@ -5,38 +5,38 @@ body {
 
 a,
 button {
-  @include on-event(true) {
+  @include kk-on-event(true) {
     outline: none;
     text-decoration: none;
-    color: color("kings-black");
+    color: $primary-color;
   }
 
   cursor: pointer;
 }
 
 img {
-  @include size(100%, auto);
+  @include kk-size(100%, auto);
 
   object-fit: contain;
 }
 
-.container {
+.kk-container {
   max-width: $max-width;
   margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
 }
 
-.list-unstyled {
+.kk-list--unstyled {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.socials-icon {
+.kk-social-icon {
   font-size: 22px;
   margin: 0 5px;
-  color: color("kings-black");
+  color: $primary-color;
   transition: color 300ms ease-in-out;
 
   &.ic-instagram:hover {

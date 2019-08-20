@@ -10,24 +10,24 @@
 @import "vendors/hamburgers";
 
 /** Import base */
-@import "base/fonts";
 @import "base/typography";
 @import "base/helpers";
 @import "base/base";
 
 /** Import layouts */
-@import "layouts/header";
-@import "layouts/sidebar";
 @import "layouts/footer";
+@import "layouts/header";
+@import "layouts/main";
 @import "layouts/pages";
 @import "layouts/posts";
+@import "layouts/sidebar";
 @import "layouts/tinymce";
 
 /** Import components */
 @import "components/buttons";
 
 /** Import pages */
-@import "pages/front-page";
+@import "pages/homepage";
 
 /** Import themes */
 @import "themes/default";

@@ -2,11 +2,45 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+
+  @each $key, $num in $map {
+    @if $prev-num == null or unit($num) == "%" {
+      // Do nothing
+    }
+
+    @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+
+    @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Starts at zero
+// Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+
 /// Event wrapper
 /// @author Harry Roberts
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
-@mixin on-event($self: false) {
+@mixin kk-on-event($self: false) {
   @if $self {
     &,
     &:hover,
@@ -28,22 +62,22 @@
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context
-@mixin when-inside($context) {
+@mixin kk-when-inside($context) {
   #{$context} & {
     @content;
   }
 }
 
 /// Basic stuff for pseudo elements
-@mixin pseudo($display: block, $position: absolute, $content: "") {
+@mixin kk-pseudo($display: block, $position: absolute, $content: "") {
   content: $content;
   display: $display;
   position: $position;
 }
 
 /// :after, :before arrow mixin
-@mixin css-triangle($color, $direction, $size: 6px, $h-center: false, $v-center: false, $display: block, $position: absolute) {
-  @include pseudo($display: $display, $position: $position);
+@mixin kk-triangle($color, $direction, $size: 6px, $h-center: false, $v-center: false, $display: block, $position: absolute) {
+  @include kk-pseudo($display: $display, $position: $position);
 
   width: 0;
   height: 0;
@@ -87,15 +121,29 @@
   }
 }
 
-/// Mixin helping defining both `width` and `height` simultaneously.
-///
-/// @author Hugo Giraudel
-///
-/// @access public
-///
-/// @param {Length} $width - Element’s `width`
-/// @param {Length} $height [$width] - Element’s `height`
-@mixin size($width, $height: $width) {
+/// Sets width and height
+@mixin kk-size($width, $height: $width) {
   width: $width;
   height: $height;
+}
+
+@mixin kk-fancy-underline($width: 1px, $color: $primary-color) {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+
+  &::after {
+    @include kk-pseudo(block, relative);
+
+    border-bottom: $width solid $color;
+    margin-top: -$width;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+  }
 }
