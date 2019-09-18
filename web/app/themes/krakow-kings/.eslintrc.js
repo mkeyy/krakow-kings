@@ -33,6 +33,7 @@ module.exports = {
   },
   'rules': {
     'no-console': 0,
+    'no-descending-specificity': null,
     'quotes': ['error', 'single'],
     'comma-dangle': [
       'error',

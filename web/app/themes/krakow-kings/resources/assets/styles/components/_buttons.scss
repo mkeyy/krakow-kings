@@ -1,0 +1,41 @@
+.kk-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $kk-ff-header;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.kk-btn--primary {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  background-color: $tertiary-color;
+  color: $kk-white;
+  padding: 10px;
+}
+
+.kk-btn--secondary {
+  background-color: $kk-white;
+  color: $primary-color;
+}
+
+.kk-btn--more {
+  @include kk-size(auto, 30px);
+
+  position: relative;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 50px 0 10px;
+  transition: transform 0.3s ease-in-out;
+
+  svg.kk-svg--ic-arrow {
+    position: absolute;
+    right: 0;
+  }
+}

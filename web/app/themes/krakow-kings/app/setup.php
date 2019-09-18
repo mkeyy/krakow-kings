@@ -7,14 +7,13 @@ use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
-
 /**
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/styles.css', asset_path('styles/styles.css'), false, null);
-    wp_enqueue_style('roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=latin-ext');
-    wp_enqueue_style('lalezar-font', 'https://fonts.googleapis.com/css?family=Lalezar&display=swap&subset=latin-ext');
+    wp_enqueue_style('lato-font', 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin-ext');
+    wp_enqueue_style('oswald-font', 'https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap&subset=latin-ext');
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -47,7 +46,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'secondary_navigation' => __('Secondary Navigation', 'sage')
     ]);
 
     /**
@@ -57,6 +57,9 @@ add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
 
     add_image_size('logo', 100, 100, false);
+    add_image_size('carousel', 1000, 900, false);
+    add_image_size('team-logo', 200, 200, false);
+    add_image_size('sponsor-logo', 100, 100, false);
 
     /**
      * Enable post thumbnails

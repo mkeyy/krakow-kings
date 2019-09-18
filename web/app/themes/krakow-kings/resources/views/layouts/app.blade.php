@@ -7,7 +7,6 @@
         @include('header')
 
         <main class="kk-main">
-            @include('sidebar')
             @yield('content')
         </main>
 

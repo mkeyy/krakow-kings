@@ -26,30 +26,34 @@
     "issues": "https://github.com/roots/sage/issues",
     "forum": "https://discourse.roots.io/"
   },
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/"
-    },
-    "files": [
-      "vendor/cmb2/cmb2/init.php"
-    ]
-  },
-  "extra": {
-    "installer-paths": {
-      "vendor/cmb2/cmb2": ["cmb2/cmb2"]
-    }
-  },
   "require": {
     "php": ">=7.1",
     "composer/installers": "^1.4",
     "illuminate/support": "5.6.*",
     "roots/sage-lib": "~9.0.9",
     "soberwp/controller": "~2.1.0",
-    "cmb2/cmb2": "^2.6"
+    "jjgrainger/posttypes": "^2.0",
+    "cmb2/cmb2": "^2.6",
+    "alexis-magina/cmb2-field-post-search-ajax": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.8.0",
     "roots/sage-installer": "~1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "vendor/cmb2/cmb2/init.php",
+      "vendor/alexis-magina/cmb2-field-post-search-ajax/cmb-field-post-search-ajax.php"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/cmb2/cmb2": ["cmb2/cmb2"],
+      "vendor/alexis-magina/cmb2-field-post-search-ajax": ["alexis-magina/cmb2-field-post-search-ajax"]
+    }
   },
   "scripts": {
     "test": ["phpcs"],

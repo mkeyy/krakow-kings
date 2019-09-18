@@ -9,7 +9,6 @@ button {
   @include kk-on-event(true) {
     outline: none;
     text-decoration: none;
-    color: $primary-color;
   }
 
   cursor: pointer;
@@ -28,23 +27,12 @@ img {
   padding-left: 15px;
 }
 
+.kk-section {
+  padding: 50px 0;
+}
+
 .kk-list--unstyled {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.kk-social-icon {
-  font-size: 22px;
-  margin: 0 5px;
-  color: $primary-color;
-  transition: color 300ms ease-in-out;
-
-  &.ic-instagram:hover {
-    color: #e1306c;
-  }
-
-  &.ic-facebook:hover {
-    color: #3b5998;
-  }
 }

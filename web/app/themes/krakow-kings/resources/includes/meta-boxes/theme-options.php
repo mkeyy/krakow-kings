@@ -27,8 +27,8 @@ function kings_register_theme_options_metabox()
      * Prefix is not needed.
      */
     $options->add_field(array(
-        'name' => __('Logo', 'kings'),
-        'desc' => __('Website logo', 'kings'),
+        'name' => esc_html__('Logo', 'kings'),
+        'desc' => esc_html__('Website Logo', 'kings'),
         'id' => 'logo',
         'type' => 'file'
     ));

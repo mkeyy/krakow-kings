@@ -9,8 +9,8 @@
  */
 function assetSvg($filename = null, $additionalClasses = null, $id = null)
 {
-    if(isset($id)) {
-        $file = $svg_path = wp_get_attachment_image_url($id);
+    if (isset($id)) {
+        $file = $svg_path = wp_get_attachment_image_url($id, 'logo', false);
     } else {
         $file = file_exists(get_template_directory() . '/assets/images/icons/' . $filename . '.svg');
         $svg_path = get_template_directory_uri() . '/assets/images/icons/' . $filename . '.svg';
@@ -29,3 +29,17 @@ function assetSvg($filename = null, $additionalClasses = null, $id = null)
     // Return a blank string if we can't find the file.
     return '';
 }
+
+/**
+ *  Disable content editor for posts
+ */
+add_action('init', function () {
+    remove_post_type_support('post', 'editor');
+});
+
+/**
+ * Removes comments from admin panel
+ */
+add_action('admin_menu', function () {
+    remove_menu_page('edit-comments.php');
+});

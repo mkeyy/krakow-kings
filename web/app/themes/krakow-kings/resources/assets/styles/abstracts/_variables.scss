@@ -1,22 +1,32 @@
-$theme-colors: (
-  kk-black: #000,
-  kk-white: #fff,
-  kk-blue: #001e44,
-  kk-gold: #ffe263,
-);
+// Colors
+$kk-black: #000;
+$kk-black-two: #2f3439;
+$kk-white: #fff;
+$kk-blue: #1d436f;
+$kk-gold: #ffe263;
+$kk-lightgrey: #e7ebec;
+$kk-facebook: #3c5a99;
+$kk-instagram: #e1306c;
 
-$primary-color: map-get($theme-colors, kk-black);
-$secondary-color: map-get($theme-colors, kk-gold);
+$primary-color: $kk-black;
+$secondary-color: $kk-lightgrey;
+$tertiary-color: $kk-blue;
+$primary-font-color: $kk-black-two;
 
-/// Container's maximum width
-/// @type Length
+// Container's maximum width
+// @type Length
 $max-width: 1280px !default;
+$max-width--small: 765px !default;
 
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-/// $base-url: 'http://cdn.example.com/assets/';
+// Relative or absolute URL where all assets are served from
+// @type String
+// @example scss - When using a CDN
+// $base-url: 'http://cdn.example.com/assets/';
 $base-url: "../" !default;
+
+//Font Family
+$kk-ff-header: "Oswald", sans-serif;
+$kk-ff-basic: "Lato", sans-serif;
 
 // Grid breakpoints
 //

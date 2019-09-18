@@ -116,6 +116,13 @@ Container::getInstance()
 /**
  * Require all metaboxes files.
  */
-foreach (glob(dirname(__DIR__) . "/resources/meta/*.php") as $filename) {
+foreach (glob(dirname(__DIR__) . "/resources/includes/meta-boxes/*.php") as $filename) {
+    require_once $filename;
+}
+
+/**
+ * Require all cpt files.
+ */
+foreach (glob(dirname(__DIR__) . "/resources/includes/post-types/*.php") as $filename) {
     require_once $filename;
 }

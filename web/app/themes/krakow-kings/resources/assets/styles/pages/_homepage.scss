@@ -1,9 +1,227 @@
-.kk-homepage {
-  @include kk-size(100%, auto);
-}
+.kk-home {
+  @include kk-size(100%, calc(100vh - 76px));
 
-.kk-homepage__video {
-  @include kk-size(100%, auto);
+  .kk-hero {
+    @include kk-size(100%);
 
-  object-fit: cover;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "p-1 p-2 p-2" "p-1 p-3 p-4";
+    grid-gap: 1px;
+
+    .kk-hero__item {
+      @include kk-size(100%);
+
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      grid-area: p-1;
+
+      &::before {
+        @include kk-pseudo();
+        @include kk-size(100%);
+
+        background-color: rgba($tertiary-color, 0.2);
+        z-index: 2;
+      }
+
+      &:nth-of-type(2) {
+        grid-area: p-2;
+      }
+
+      &:nth-of-type(3) {
+        grid-area: p-3;
+      }
+
+      &:nth-of-type(4) {
+        grid-area: p-4;
+      }
+
+      .kk-picture {
+        @include kk-size(100%);
+
+        transition: transform 0.5s ease-in-out;
+
+        img {
+          @include kk-size(100%);
+
+          object-fit: cover;
+        }
+      }
+
+      .kk-content {
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        padding: 40px;
+
+        &::before {
+          @include kk-pseudo(block, relative);
+          @include kk-size(50px, 3px);
+
+          background-color: $kk-white;
+          transition: width 0.3s ease-in-out;
+        }
+
+        .kk-h2 {
+          font-size: 25px;
+          text-transform: uppercase;
+          color: $kk-white;
+          margin: 20px 0 0;
+        }
+
+        .kk-p {
+          color: rgba($kk-white, 0.8);
+          margin: 20px 0 0;
+        }
+
+        .kk-btn--more {
+          height: 0;
+          margin: 20px 0;
+          transition: height 0.5s ease-in-out, padding-right 0.3s ease-in-out;
+
+          &:hover {
+            padding-right: 60px;
+          }
+        }
+      }
+
+      &:hover {
+        .kk-picture {
+          transform: scale(1.03);
+        }
+
+        .kk-content {
+          &::before {
+            width: 0;
+          }
+
+          .kk-btn--more {
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .kk-section--match {
+    position: relative;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+
+    &::before {
+      @include kk-pseudo();
+      @include kk-size(100%);
+
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background-color: rgba($secondary-color, 0.97);
+    }
+
+    .kk-match {
+      position: relative;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 200px 1fr 200px;
+      grid-gap: 0 60px;
+      max-width: $max-width--small;
+      z-index: 1;
+
+      .kk-match__team {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 200px 1fr;
+        grid-template-areas: "logo" "name";
+
+        .kk-picture {
+          @include kk-size(100%);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .kk-h2 {
+          display: flex;
+          justify-content: center;
+          font-size: 25px;
+          font-weight: 300;
+        }
+      }
+
+      .kk-match__details {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr 2fr 3fr 1fr;
+        padding: 0;
+        max-height: 400px;
+
+        .kk-span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .kk-date {
+          align-items: flex-end;
+          font-size: 22px;
+          font-weight: 700;
+          color: $kk-black-two;
+          text-transform: uppercase;
+        }
+
+        .kk-time {
+          align-items: flex-start;
+          font-size: 18px;
+          letter-spacing: 1px;
+          font-weight: 400;
+          color: $kk-black-two;
+        }
+
+        .kk-vs {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          .kk-p {
+            font-size: 25px;
+            font-weight: 400;
+            padding: 0 10px 5px;
+            margin: 0;
+          }
+
+          &::before,
+          &::after {
+            @include kk-pseudo(block, relative);
+            @include kk-size(100%, 1px);
+
+            left: 0;
+            right: auto;
+            background-color: $kk-black-two;
+          }
+
+          &::after {
+            left: auto;
+            right: 0;
+          }
+        }
+
+        .kk-score {
+          font-family: $kk-ff-header;
+          font-size: 50px;
+          font-weight: 300;
+        }
+
+        .kk-summary {
+          @include kk-btn-hover-one();
+
+          display: flex;
+          margin-top: 50px;
+        }
+      }
+    }
+  }
 }
