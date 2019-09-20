@@ -82,6 +82,6 @@
     "jquery": "3.3.1",
     "lozad": "^1.9.0",
     "popper.js": "1.14.7",
-    "siema": "^1.5.1"
+    "tiny-slider": "^2.9.2"
   }
 }

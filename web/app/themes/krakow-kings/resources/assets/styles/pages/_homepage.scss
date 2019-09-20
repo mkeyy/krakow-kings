@@ -39,8 +39,6 @@
       }
 
       .kk-picture {
-        @include kk-size(100%);
-
         transition: transform 0.5s ease-in-out;
 
         img {
@@ -122,6 +120,8 @@
     }
 
     .kk-match {
+      @extend .kk-container;
+
       position: relative;
       display: grid;
       align-items: center;
@@ -137,8 +137,6 @@
         grid-template-areas: "logo" "name";
 
         .kk-picture {
-          @include kk-size(100%);
-
           display: flex;
           justify-content: center;
           align-items: center;
@@ -216,11 +214,62 @@
         }
 
         .kk-summary {
-          @include kk-btn-hover-one();
+          @include kk-btn-hover-one($tertiary-color, $kk-white);
 
           display: flex;
           margin-top: 50px;
         }
+      }
+    }
+  }
+
+  .kk-section--sponsors {
+    @extend .kk-container;
+
+    overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
+
+    .tns-liveregion {
+      display: none;
+    }
+
+    .kk-slider--sponsors {
+      display: flex;
+      margin: 0 auto;
+
+      .kk-slider__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20px;
+
+        .kk-slider__image {
+          @include kk-size(auto, 100%);
+
+          filter: grayscale(100%);
+          transition: filter 0.3s ease-in-out;
+        }
+
+        &:hover .kk-slider__image {
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+
+  .kk-section--news {
+    @extend .kk-container;
+
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr;
+
+    .kk-sidebar {
+      display: flex;
+
+      .kk-h2 {
+        transform: rotate(90deg);
       }
     }
   }

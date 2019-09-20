@@ -149,21 +149,26 @@
 }
 
 /// Button hover effect #1
-@mixin kk-btn-hover-one($color: $kk-white) {
+@mixin kk-btn-hover-one($bg: $kk-white, $color: $tertiary-color) {
   position: relative;
+  transition: color 0.6s ease-in-out;
 
   &::before {
     @include kk-pseudo();
     @include kk-size(100%);
 
-    transform: scale(0.25, 1);
+    transform: scale(0, 1);
     opacity: 0;
-    background-color: rgba($color, 0.2);
+    background-color: $bg;
     transition: all 0.4s ease-in-out;
   }
 
-  &:hover::before {
-    opacity: 1;
-    transform: scale(1, 1);
+  &:hover {
+    color: $color;
+
+    &::before {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
   }
 }

@@ -28,11 +28,15 @@ img {
 }
 
 .kk-section {
-  padding: 50px 0;
+  padding: 80px 0;
 }
 
 .kk-list--unstyled {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.kk-picture {
+  @include kk-size(100%);
 }

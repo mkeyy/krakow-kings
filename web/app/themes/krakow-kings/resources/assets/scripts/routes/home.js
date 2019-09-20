@@ -1,21 +1,21 @@
-import Siema from 'siema';
+import { tns } from 'tiny-slider/src/tiny-slider';
 
 export default {
   init() {
     handleSliderSponsors();
 
     function handleSliderSponsors() {
-      const selector = '.kk-slider--sponsors';
+      const container = '.kk-slider--sponsors';
 
-      if($(selector).length !== 0) {
-        const items = $(selector).length;
-
-        new Siema({
-          selector: selector,
-          duration: 200,
-          easing: 'ease-in-out',
-          perPage: items >= 5 ? 5 : items,
-          loop: true,
+      if($(container).length !== 0) {
+        tns({
+          container: container,
+          items: 4,
+          autoplay: true,
+          autoplayButtonOutput: false,
+          controls: false,
+          nav: false,
+          mouseDrag: true,
         });
       }
     }

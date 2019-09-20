@@ -15,14 +15,15 @@
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 400;
-  background-color: $tertiary-color;
-  color: $kk-white;
+  background-color: transparent;
+  color: $tertiary-color;
+  border: 1px solid $tertiary-color;
   padding: 10px;
-}
 
-.kk-btn--secondary {
-  background-color: $kk-white;
-  color: $primary-color;
+  span {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .kk-btn--more {
@@ -30,6 +31,8 @@
 
   position: relative;
   justify-content: flex-start;
+  background-color: $kk-white;
+  color: $primary-color;
   overflow: hidden;
   padding: 0 50px 0 10px;
   transition: transform 0.3s ease-in-out;

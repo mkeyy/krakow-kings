@@ -7,7 +7,7 @@ function kings_front_page_metabox()
 {
     $prefix = '_kings_front_page_';
 
-    // Match meta-boxes
+    // Hero meta-boxes
     $carousel = new_cmb2_box([
         'id' => $prefix . 'hero',
         'title' => esc_html__('hero section', 'kings'),

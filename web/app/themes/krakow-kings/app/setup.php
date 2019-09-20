@@ -59,7 +59,8 @@ add_action('after_setup_theme', function () {
     add_image_size('logo', 100, 100, false);
     add_image_size('carousel', 1000, 900, false);
     add_image_size('team-logo', 200, 200, false);
-    add_image_size('sponsor-logo', 100, 100, false);
+    add_image_size('sponsor-logo', 9999, 80, false);
+    add_image_size('news-thumbnail', 300, 200, false);
 
     /**
      * Enable post thumbnails
