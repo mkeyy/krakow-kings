@@ -127,6 +127,17 @@
   height: $height;
 }
 
+/// Simplify creating grid container
+@mixin kk-grid($columns: auto, $rows: false, $gap: 0) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-gap: $gap;
+
+  @if $rows {
+    grid-template-rows: $rows;
+  }
+}
+
 /// Text underline effect
 @mixin kk-fancy-underline($width: 1px, $color: $primary-color) {
   position: relative;

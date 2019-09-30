@@ -1,28 +1,42 @@
 import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock';
+import {throttle} from 'lodash';
 
 export default {
-  init() {
-    handleNavbarCollapse();
+    init() {
+        handleHeaderScroll();
+        handleNavbarCollapse();
 
-    function handleNavbarCollapse() {
-      let $hamburger = $('.kk-header__hamburger');
+        function handleHeaderScroll() {
+            const header = $('.kk-header');
 
-      $hamburger.on('click', function() {
-        let target = $('#' + $(this).data('target'));
+            $(window).on('scroll touchmove', throttle(function () {
+                if ($(document).scrollTop() > 0) {
+                    header.addClass('kk-header--sticky');
+                } else {
+                    header.removeClass('kk-header--sticky');
+                }
+            }, 15));
+        }
 
-        clearAllBodyScrollLocks();
+        function handleNavbarCollapse() {
+            const $hamburger = $('.kk-header__hamburger');
 
-        $(this).toggleClass('is-active');
-        target.toggleClass('kk-slide-in');
+            $hamburger.on('click', function () {
+                const target = $('#' + $(this).data('target'));
 
-        if (target.hasClass('kk-slide-in'))
-          disableBodyScroll(target[0], {
-            reserveScrollBarGap: true,
-          });
-      });
-    }
-  },
-  finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
-  },
+                clearAllBodyScrollLocks();
+
+                $(this).toggleClass('is-active');
+                target.toggleClass('kk-slide-in');
+
+                if (target.hasClass('kk-slide-in'))
+                    disableBodyScroll(target[0], {
+                        reserveScrollBarGap: true,
+                    });
+            });
+        }
+    },
+    finalize() {
+        // JavaScript to be fired on all pages, after page specific JS is fired
+    },
 };

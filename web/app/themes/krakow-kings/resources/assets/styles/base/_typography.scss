@@ -1,18 +1,27 @@
-.kk-h1,
-.kk-h2 {
+h1, h2, h3,
+.kk-h1, .kk-h2, .kk-h3 {
   font-family: $kk-ff-header;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 2.5px;
+  color: $kk-black-two;
+  margin: 0;
 }
 
-.kk-h1 {
+h1, .kk-h1 {
   font-size: 45px;
 }
 
-.kk-h2 {
+h2, .kk-h2 {
   font-size: 35px;
   font-weight: 400;
+}
+
+h3, .kk-h3 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .kk-p,

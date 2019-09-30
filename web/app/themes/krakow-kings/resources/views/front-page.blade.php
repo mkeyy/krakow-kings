@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="kk-page kk-home">
+    <main class="kk-main kk-main--home">
 
         <?php
         /*
@@ -107,23 +107,27 @@
         $sponsors = new WP_Query(array(
             'post_type' => 'sponsor',
             'post_status' => 'publish',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
         ));
         ?>
         @if(!empty($sponsors))
             <section class="kk-section kk-section--sponsors">
-                <div class="kk-slider--sponsors">
-                    @while($sponsors->have_posts())
-                        @php
-                            $sponsors->the_post();
-                            $link = get_post_meta(get_the_ID(), '_kings_sponsors_link', true);
-                        @endphp
-                        <a href="{{ $link }}" class="kk-slider__item" target="_blank">
-                            <img src="{{ get_the_post_thumbnail_url(get_the_ID(), 'sponsor-logo') }}"
-                                 alt="{{ get_the_title() }}" class="kk-slider__image kk-lozad">
-                        </a>
-                    @endwhile
-                    @php wp_reset_query() @endphp
+                <div class="kk-container">
+                    <div class="kk-slider--sponsors">
+                        @while($sponsors->have_posts())
+                            @php
+                                $sponsors->the_post();
+                                $link = get_post_meta(get_the_ID(), '_kings_sponsors_link', true);
+                            @endphp
+                            <a href="{{ $link }}" class="kk-slider__slide" target="_blank">
+                                <img src="{{ get_the_post_thumbnail_url(get_the_ID(), 'sponsor-logo') }}"
+                                     alt="{{ get_the_title() }}" class="kk-slider__image kk-lozad">
+                            </a>
+                        @endwhile
+                        @php wp_reset_query() @endphp
+                    </div>
                 </div>
             </section>
         @endif
@@ -142,9 +146,11 @@
         @if(!empty($news))
             <section class="kk-section kk-section--news">
                 <div class="kk-sidebar">
-                    <h2 class="kk-h2">{{ __('Aktualności', 'kings') }}</h2>
-                    <a href="{{ get_post_type_archive_link('post') }}"
-                       class="kk-btn kk-btn--primary">{{ __('Zobacz więcej', 'kings') }}</a>
+                    <div class="kk-sidebar--vertical">
+                        <h2 class="kk-h2">{{ __('Aktualności', 'kings') }}</h2>
+                        <a href="{{ get_post_type_archive_link('post') }}"
+                           class="kk-btn kk-btn--primary">{{ __('Zobacz więcej', 'kings') }}</a>
+                    </div>
                 </div>
 
                 <div class="kk-news">
@@ -153,16 +159,22 @@
                             $news->the_post();
                             $shortDescription = get_post_meta(get_the_ID(), '_kings_posts_short_description', true);
                         @endphp
-                        <a href="{{ get_the_permalink() }}" class="kk-news" target="_blank">
-                            <picture class="kk-picture kk-lozad"
-                                     data-iesrc="{{ get_the_post_thumbnail_url(get_the_ID(), 'news-thumbnail') }}"
-                                     data-alt="{{ get_the_title() }}">
-                                <source srcset="{{ get_the_post_thumbnail_url(get_the_ID(), 'news-thumbnail') }}"
-                                        media="(min-width: 320px)">
+                        <a href="{{ get_the_permalink() }}" class="kk-news__item" target="_blank">
+                            <div class="kk-picture-wrapper">
+                                <picture class="kk-picture kk-lozad"
+                                         data-iesrc="{{ get_the_post_thumbnail_url(get_the_ID(), 'news-thumbnail') }}"
+                                         data-alt="{{ get_the_title() }}">
+                                    <source srcset="{{ get_the_post_thumbnail_url(get_the_ID(), 'news-thumbnail') }}"
+                                            media="(min-width: 320px)">
 
-                            </picture>
+                                </picture>
+                            </div>
                             <h3 class="kk-h3">{{ get_the_title() }}</h3>
-                            @if($shortDescription) <p class="kk-p">{!! $shortDescription !!}</p> @endif
+                            @if($shortDescription) <p class="kk-p">{!! truncateString($shortDescription) !!}</p> @endif
+                            <button class="kk-btn kk-btn--arrow">
+                                <span>{{ __('Więcej', 'kings') }}</span>
+                                <?= assetSvg('ic-arrow') ?>
+                            </button>
                         </a>
                     @endwhile
                     @php wp_reset_query() @endphp
@@ -170,6 +182,6 @@
             </section>
         @endif
 
-    </div>
+    </main>
 
 @endsection

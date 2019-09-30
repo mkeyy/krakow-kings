@@ -31,6 +31,21 @@ function assetSvg($filename = null, $additionalClasses = null, $id = null)
 }
 
 /**
+ * Cuts the string and adds three dots at the end
+ * @param $string
+ * @param int $max
+ * @return string
+ */
+function truncateString($string, $max = 100) {
+    if (strlen($string) > $max) {
+        $lastPos = ($max - 3) - strlen($string);
+        return substr($string, 0, strrpos($string, ' ', $lastPos)) . '...';
+    }
+
+    return $string;
+}
+
+/**
  *  Disable content editor for posts
  */
 add_action('init', function () {

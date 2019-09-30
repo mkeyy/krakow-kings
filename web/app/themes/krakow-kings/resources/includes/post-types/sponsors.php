@@ -25,7 +25,7 @@ $labels = [
     'not_found_in_trash' => __('Nie znaleziono sponsorów w koszu.', 'kings')
 ];
 $options = [
-    'supports' => ['title', 'thumbnail'],
+    'supports' => ['title', 'thumbnail', 'page-attributes'],
     'capability_type' => 'page',
     'has_archive' => 'sponsorzy',
     'public' => true

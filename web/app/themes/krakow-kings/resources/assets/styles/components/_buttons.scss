@@ -42,3 +42,21 @@
     right: 0;
   }
 }
+
+.kk-btn--arrow {
+  position: relative;
+  padding: 0;
+
+  span {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0s;
+  }
+
+  .kk-svg--ic-arrow {
+    @include kk-size(40px);
+
+    position: absolute;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+  }
+}

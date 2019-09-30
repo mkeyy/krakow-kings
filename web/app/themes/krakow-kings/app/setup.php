@@ -11,10 +11,12 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('sage/styles.css', asset_path('styles/styles.css'), false, null);
+    wp_enqueue_style('styles.css', asset_path('styles/styles.css'), false, null);
     wp_enqueue_style('lato-font', 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap&subset=latin-ext');
     wp_enqueue_style('oswald-font', 'https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap&subset=latin-ext');
-    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('lodash', 'https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js', null, '4.15.15', true);
+    wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', null, '1.8.1', true);
+    wp_enqueue_script('main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -59,8 +61,8 @@ add_action('after_setup_theme', function () {
     add_image_size('logo', 100, 100, false);
     add_image_size('carousel', 1000, 900, false);
     add_image_size('team-logo', 200, 200, false);
-    add_image_size('sponsor-logo', 9999, 80, false);
-    add_image_size('news-thumbnail', 300, 200, false);
+    add_image_size('sponsor-logo', 9999, 100, false);
+    add_image_size('news-thumbnail', 370, 250, true);
 
     /**
      * Enable post thumbnails

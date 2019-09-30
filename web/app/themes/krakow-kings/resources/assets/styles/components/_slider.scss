@@ -1,0 +1,29 @@
+.slick-list {
+  display: flex;
+}
+
+.slick-track {
+  display: flex;
+  justify-content: center;
+}
+
+.kk-slider--sponsors {
+  .kk-slider__slide {
+    @include kk-size(100%, auto);
+
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+
+    .kk-slider__image {
+      @include kk-size(auto, auto);
+
+      filter: grayscale(100%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    &:hover .kk-slider__image {
+      filter: grayscale(0);
+    }
+  }
+}

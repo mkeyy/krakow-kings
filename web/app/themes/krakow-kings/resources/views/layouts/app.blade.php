@@ -6,9 +6,7 @@
         @php do_action('get_header') @endphp
         @include('header')
 
-        <main class="kk-main">
-            @yield('content')
-        </main>
+        @yield('content')
 
         @php do_action('get_footer') @endphp
         @include('footer')

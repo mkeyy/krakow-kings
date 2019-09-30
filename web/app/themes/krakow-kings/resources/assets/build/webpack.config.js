@@ -141,6 +141,8 @@ let webpackConfig = {
     },
     externals: {
         jquery: 'jQuery',
+        lodash: 'lodash',
+        slick: 'slick',
     },
     plugins: [
         new CleanPlugin([config.paths.dist], {

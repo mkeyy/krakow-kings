@@ -4,6 +4,7 @@ module.exports = {
     'no-empty-source': null,
     'string-quotes': 'double',
     'no-descending-specificity': null,
+    'selector-list-comma-newline-after': null,
     'at-rule-no-unknown': [
       true,
       {
