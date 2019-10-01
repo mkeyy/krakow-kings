@@ -11,7 +11,11 @@
                 'kk-menu__nav']) !!}
             @endif
         </div>
-        <a class="kk-header__brand" href="{{ home_url('/') }}"><img src="{{ $logo }}" alt="Kraków Football Kings"></a>
+        @if(!empty($logo))
+            <a class="kk-header__brand" href="{{ home_url('/') }}">
+                <img src="{{ $logo }}" alt="Kraków Football Kings">
+            </a>
+        @endif
         <div class="kk-header__content kk-header__content--right">
             @if (has_nav_menu('secondary_navigation'))
                 {!! wp_nav_menu(['theme_location' => 'secondary_navigation', 'container' => null, 'menu_class' =>
@@ -20,10 +24,12 @@
             <div class="kk-header__socials">
                 @if(!empty($socials))
                     @foreach($socials as $social)
-                        <a class="kk-social-icon {{ 'kk-social-icon--' . strtolower($social['name']) }} menu-item"
-                           href="{{ $social['link'] }}" target="_blank">
-                            {!! assetSvg('ic-' . strtolower($social['name']), 'kk-ic--social')  !!}
-                        </a>
+                        @if(strtolower($social['name']) === 'facebook' || strtolower($social['name']) === 'instagram')
+                            <a class="kk-social-icon {{ 'kk-social-icon--' . strtolower($social['name']) }} menu-item"
+                               href="{{ $social['link'] }}" target="_blank">
+                                {!! assetSvg('ic-' . strtolower($social['name']), 'kk-ic--social', $social['logo_id']) !!}
+                            </a>
+                        @endif
                     @endforeach
                 @endif
             </div>

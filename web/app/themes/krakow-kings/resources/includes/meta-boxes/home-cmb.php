@@ -7,7 +7,7 @@ function kings_front_page_metabox()
 {
     $prefix = '_kings_front_page_';
 
-    // Hero meta-boxes
+    // Hero CMB
     $carousel = new_cmb2_box([
         'id' => $prefix . 'hero',
         'title' => esc_html__('hero section', 'kings'),
@@ -29,7 +29,7 @@ function kings_front_page_metabox()
         )
     ]);
 
-    // Match meta-boxes
+    // Match CMB
     $match = new_cmb2_box([
         'id' => $prefix . 'match',
         'title' => esc_html__('match', 'kings'),
@@ -68,6 +68,11 @@ function kings_front_page_metabox()
         'id' => $prefix . 'match_time',
         'type' => 'text_time',
         'time_format' => 'G:i',
+    ]);
+    $match->add_field([
+        'name' => esc_html__('place', 'kings'),
+        'id' => $prefix . 'match_place',
+        'type' => 'text'
     ]);
     $match->add_field([
         'name' => esc_html__('score', 'kings'),

@@ -55,7 +55,7 @@
           @include kk-size(50px, 3px);
 
           background-color: $kk-white;
-          transition: width 0.3s ease-in-out;
+          transition: width 0.2s ease-in-out 0.2s;
         }
 
         .kk-h2 {
@@ -70,14 +70,15 @@
           margin: 20px 0 0;
         }
 
-        .kk-btn--more {
-          height: 0;
+        .kk-btn--arrow {
+          justify-content: space-between;
+          width: 0;
+          overflow: hidden;
+          background-color: $kk-white;
+          padding: 5px 0;
+          border-width: 0;
           margin: 20px 0;
-          transition: height 0.5s ease-in-out, padding-right 0.3s ease-in-out;
-
-          &:hover {
-            padding-right: 60px;
-          }
+          transition: width 0.2s ease-in-out, padding 0.2s ease-in-out;
         }
       }
 
@@ -89,10 +90,19 @@
         .kk-content {
           &::before {
             width: 0;
+            transition: width 0.2s ease-in-out;
           }
 
-          .kk-btn--more {
-            height: 30px;
+          .kk-btn--arrow {
+            width: 130px;
+            padding: 5px 10px;
+            transition: width 0.2s ease-in-out, padding 0.2s ease-in-out;
+
+            span {
+              width: 100px;
+              opacity: 1;
+              transition: width 0.3s ease-in-out 0.2s, opacity 0.2s ease-in-out 0.1s;
+            }
           }
         }
       }
@@ -207,7 +217,7 @@
         }
 
         .kk-summary {
-          @include kk-btn-hover-one($tertiary-color, $kk-white);
+          @include kk-btn-hover-center($tertiary-color, $kk-white);
 
           display: flex;
           margin-top: 50px;
@@ -230,6 +240,8 @@
     @extend .kk-container;
 
     @include kk-grid(150px auto, 1fr);
+
+    min-height: 570px;
 
     .kk-sidebar {
       position: relative;
@@ -265,8 +277,8 @@
           transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 
           &:hover {
-            background-color: darken($kk-darkgrey, 10%);
-            border-color: darken($kk-darkgrey, 10%);
+            background-color: $kk-blue;
+            border-color: $kk-blue;
           }
         }
 
@@ -281,7 +293,7 @@
     }
 
     .kk-news {
-      @include kk-grid(repeat(3, 1fr), false, 20px 10px);
+      @include kk-grid(repeat(3, 1fr), max-content, 30px 10px);
 
       grid-auto-rows: 1fr;
 
@@ -316,12 +328,24 @@
           font-size: 15px;
           line-height: 1.2;
           color: $kk-black-two;
-          margin: 0;
+          margin: 0 0 10px;
         }
 
         .kk-btn--arrow {
-          padding-top: 20px;
-          margin: auto 50px 0 auto;
+          position: relative;
+          margin: auto 10px 0 auto;
+          transition: color 0.2s ease-in-out, fill 0.2s ease-in-out;
+
+          &::before {
+            @include kk-pseudo();
+            @include kk-size(100%);
+
+            transform: scale(0, 1);
+            transform-origin: 0 50%;
+            opacity: 0;
+            background-color: $primary-color;
+            transition: all 0.2s ease-in-out;
+          }
         }
 
         &:hover {
@@ -330,12 +354,15 @@
           }
 
           .kk-btn--arrow {
-            span {
-              opacity: 1;
+            color: $kk-white;
+
+            svg {
+              fill: $kk-white;
             }
 
-            .kk-svg--ic-arrow {
-              left: 100%;
+            &::before {
+              opacity: 1;
+              transform: scale(1, 1);
             }
           }
         }

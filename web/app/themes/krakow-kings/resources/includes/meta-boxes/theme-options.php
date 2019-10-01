@@ -26,16 +26,20 @@ function kings_register_theme_options_metabox()
      * to be unique within this box.
      * Prefix is not needed.
      */
+
+    // Logo CMB
     $options->add_field(array(
         'name' => esc_html__('Logo', 'kings'),
         'desc' => esc_html__('Website Logo', 'kings'),
         'id' => 'logo',
         'type' => 'file'
     ));
+
+    // Socials CMB
     $socials = $options->add_field(array(
         'id' => 'socials',
         'type' => 'group',
-        'description' => esc_html__('Socials Links', 'kings'),
+        'name' => esc_html__('Socials Links', 'kings'),
         'options' => array(
             'group_title' => esc_html__('Social {#}', 'kings'),
             'add_button' => esc_html__('Add another social', 'kings'),
@@ -43,6 +47,12 @@ function kings_register_theme_options_metabox()
             'sortable' => true,
             'closed' => true,
         ),
+    ));
+    $options->add_group_field($socials, array(
+        'name' => esc_html__('Logo', 'kings'),
+        'description' => esc_html__('Social logo', 'kings'),
+        'id' => 'logo',
+        'type' => 'file'
     ));
     $options->add_group_field($socials, array(
         'name' => esc_html__('Name', 'kings'),
@@ -54,6 +64,37 @@ function kings_register_theme_options_metabox()
         'name' => esc_html__('Link', 'kings'),
         'description' => esc_html__('Social page link', 'kings'),
         'id' => 'link',
+        'type' => 'text'
+    ));
+
+    // Footer CMB
+    $footer = $options->add_field(array(
+        'name' => esc_html__('Footer', 'kings'),
+        'id' => 'footer',
+        'type' => 'group',
+        'repeatable'  => false,
+        'options' => array(
+            'group_title' => esc_html__('Footer', 'kings'),
+            'sortable' => true,
+            'closed' => true,
+        ),
+    ));
+    $options->add_group_field($footer, array(
+        'name' => esc_html__('Contact title', 'kings'),
+        'description' => esc_html__('Contact title', 'kings'),
+        'id' => 'contact_title',
+        'type' => 'text'
+    ));
+    $options->add_group_field($footer, array(
+        'name' => esc_html__('Contact email', 'kings'),
+        'description' => esc_html__('Contact email', 'kings'),
+        'id' => 'contact_email',
+        'type' => 'text'
+    ));
+    $options->add_group_field($footer, array(
+        'name' => esc_html__('Contact phone', 'kings'),
+        'description' => esc_html__('Contact phone', 'kings'),
+        'id' => 'contact_phone',
         'type' => 'text'
     ));
 }
