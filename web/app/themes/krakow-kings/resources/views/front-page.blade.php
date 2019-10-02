@@ -175,6 +175,7 @@
                             <h3 class="kk-h3">{{ get_the_title() }}</h3>
                             @if($shortDescription) <p class="kk-p">{!! truncateString($shortDescription) !!}</p> @endif
                             <button class="kk-btn kk-btn--arrow">
+                                <span>{{ __('Więcej', 'kings') }}</span>
                                 <?= assetSvg('ic-arrow') ?>
                             </button>
                         </a>

@@ -1,9 +1,11 @@
-// -----------------------------------------------------------------------------
-// This file contains all application-wide Sass mixins.
-// -----------------------------------------------------------------------------
+/*
+  -----------------------------------------------------------------------------
+  This file contains all application-wide Sass mixins.
+  -----------------------------------------------------------------------------
 
-// Ascending
-// Used to evaluate Sass maps like our grid breakpoints.
+  Ascending
+  Used to evaluate Sass maps like our grid breakpoints.
+*/
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
@@ -25,8 +27,10 @@
   }
 }
 
-// Starts at zero
-// Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
+/*
+  Starts at zero
+  Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
+*/
 @mixin _assert-starts-at-zero($map) {
   $values: map-values($map);
   $first-value: nth($values, 1);
@@ -36,10 +40,12 @@
   }
 }
 
-/// Event wrapper
-/// @author Harry Roberts
-/// @param {Bool} $self [false] - Whether or not to include current selector
-/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+/*
+  Event wrapper
+  @author Harry Roberts
+  @param {Bool} $self [false] - Whether or not to include current selector
+  @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+ */
 @mixin kk-on-event($self: false) {
   @if $self {
     &,
@@ -59,23 +65,25 @@
   }
 }
 
-/// Make a context based selector a little more friendly
-/// @author Hugo Giraudel
-/// @param {String} $context
+/*
+  Make a context based selector a little more friendly
+  @author Hugo Giraudel
+  @param {String} $context
+*/
 @mixin kk-when-inside($context) {
   #{$context} & {
     @content;
   }
 }
 
-/// Basic stuff for pseudo elements
+/* Basic stuff for pseudo elements */
 @mixin kk-pseudo($display: block, $position: absolute, $content: "") {
   content: $content;
   display: $display;
   position: $position;
 }
 
-/// :after, :before arrow mixin
+/* :after, :before arrow mixin */
 @mixin kk-triangle($color, $direction, $size: 6px, $h-center: false, $v-center: false, $display: block, $position: absolute) {
   @include kk-pseudo($display: $display, $position: $position);
 
@@ -121,13 +129,13 @@
   }
 }
 
-/// Sets width and height
+/* Sets width and height */
 @mixin kk-size($width, $height: $width) {
   width: $width;
   height: $height;
 }
 
-/// Simplify creating grid container
+/* Simplify creating grid container */
 @mixin kk-grid($columns: auto, $rows: false, $gap: 0) {
   display: grid;
   grid-template-columns: $columns;
@@ -138,8 +146,8 @@
   }
 }
 
-/// Text underline effect
-@mixin kk-fancy-underline($width: 1px, $color: $primary-color, $inverted: false) {
+/* Text underline effect */
+@mixin kk-underline-effect($width: 1px, $color: $primary-color, $inverted: false) {
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -173,8 +181,8 @@
   }
 }
 
-/// Button hover effect #1
-@mixin kk-btn-hover-center($bg: $kk-white, $color: $tertiary-color) {
+/* Button hover effect #1 */
+@mixin kk-btn-effect-one($bg: $kk-white, $color: $tertiary-color) {
   position: relative;
   transition: color 0.6s ease-in-out, fill 0.6s ease-in-out;
 
@@ -186,6 +194,36 @@
     opacity: 0;
     background-color: $bg;
     transition: all 0.4s ease-in-out;
+  }
+
+  &:hover {
+    color: $color;
+
+    svg {
+      fill: $color;
+    }
+
+    &::before {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+/* Button hover effect #2 */
+@mixin kk-btn-effect-two($bg: $kk-white, $color: $tertiary-color) {
+  position: relative;
+  transition: color 0.2s ease-in-out, fill 0.2s ease-in-out;
+
+  &::before {
+    @include kk-pseudo();
+    @include kk-size(100%);
+
+    transform: scale(0, 1);
+    transform-origin: 0 50%;
+    opacity: 0;
+    background-color: $bg;
+    transition: all 0.2s ease-in-out;
   }
 
   &:hover {

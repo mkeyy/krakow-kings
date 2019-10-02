@@ -71,12 +71,10 @@
         }
 
         .kk-btn--arrow {
-          justify-content: space-between;
           width: 0;
-          overflow: hidden;
           background-color: $kk-white;
-          padding: 5px 0;
           border-width: 0;
+          padding: 5px 0;
           margin: 20px 0;
           transition: width 0.2s ease-in-out, padding 0.2s ease-in-out;
         }
@@ -217,7 +215,7 @@
         }
 
         .kk-summary {
-          @include kk-btn-hover-center($tertiary-color, $kk-white);
+          @include kk-btn-effect-one($tertiary-color, $kk-white);
 
           display: flex;
           margin-top: 50px;
@@ -332,20 +330,7 @@
         }
 
         .kk-btn--arrow {
-          position: relative;
           margin: auto 10px 0 auto;
-          transition: color 0.2s ease-in-out, fill 0.2s ease-in-out;
-
-          &::before {
-            @include kk-pseudo();
-            @include kk-size(100%);
-
-            transform: scale(0, 1);
-            transform-origin: 0 50%;
-            opacity: 0;
-            background-color: $primary-color;
-            transition: all 0.2s ease-in-out;
-          }
         }
 
         &:hover {
@@ -356,13 +341,10 @@
           .kk-btn--arrow {
             color: $kk-white;
 
-            svg {
-              fill: $kk-white;
-            }
-
-            &::before {
+            span {
+              width: 100px;
               opacity: 1;
-              transform: scale(1, 1);
+              transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out 0.1s;
             }
           }
         }

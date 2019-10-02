@@ -3,43 +3,16 @@
   padding: 50px 0;
 
   .kk-container {
-    @include kk-grid(45% repeat(2, 1fr), max-content, 20px);
+    @include kk-grid(50% 50%, repeat(2, max-content), 80px 20px);
 
-    grid-template-areas: "brand contact socials";
+    grid-template-areas: "contact socials" "copyrights blank";
 
-    .kk-footer__brand {
-      @include kk-size(100%, auto);
-
-      display: flex;
-      flex-direction: column;
-      grid-area: brand;
-
-      .kk-brand {
-        max-width: 100px;
-        filter: grayscale(1);
-        opacity: 0.5;
-        transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-        &:hover {
-          filter: grayscale(0);
-          opacity: 1;
-        }
-      }
-
-      .kk-brand-title {
-        font-size: 35px;
-        text-transform: initial;
-        color: $kk-white;
-        margin: 80px 0 50px;
-      }
-
-      .kk-copyrights {
-        font-family: $kk-ff-basic;
-        font-size: 12px;
-        letter-spacing: 0.5px;
-        line-height: 1.2;
-        color: rgba($kk-white, 0.2);
-      }
+    .kk-h4 {
+      font-family: $kk-ff-special;
+      font-size: 20px;
+      font-weight: 600;
+      color: rgba($kk-white, 0.2);
+      margin-bottom: 20px;
     }
 
     .kk-footer__contact {
@@ -47,13 +20,12 @@
       flex-direction: column;
       align-items: flex-start;
       grid-area: contact;
-      margin: 70px 0 30px;
 
       .kk-link {
-        @include kk-fancy-underline(1px, $kk-white, true);
+        @include kk-underline-effect(1px, $kk-white, true);
 
         font-family: $kk-ff-special;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 700;
         line-height: 1.5;
         color: $kk-white;
@@ -61,81 +33,37 @@
       }
     }
 
-    .kk-footer__menu {
+    .kk-footer__socials {
       display: flex;
-      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
       grid-area: socials;
-      margin: 70px 0 30px;
+      margin-right: -20px;
 
-      .kk-footer__socials {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
+      .kk-social-icon {
+        margin: 0 20px;
 
-        .kk-social-icon {
-          margin: 0 10px;
+        .kk-ic--social {
+          @include kk-size(25px);
 
-          .kk-ic--social {
-            @include kk-size(30px);
-
-            fill: rgba($kk-white, 0.2);
-            transition: fill 0.3s ease-in-out;
-          }
-
-          &:hover .kk-ic--social {
-            fill: $kk-white;
-          }
+          fill: rgba($kk-white, 0.2);
+          transition: fill 0.3s ease-in-out;
         }
-      }
 
-      .kk-footer__nav {
-        display: flex;
-        flex-direction: column;
-        margin: 10px 0 0;
-
-        .kk-menu__nav {
-          @extend .kk-list--unstyled;
-
-          margin: 10px 0 0 10px;
-
-          .menu-item a {
-            display: flex;
-            align-items: center;
-            font-family: $kk-ff-special;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: rgba($kk-white, 0.2);
-            transition: color 0.3s ease-in-out;
-
-            &::before {
-              @include kk-pseudo(block, relative);
-              @include kk-size(0, 1px);
-
-              background-color: rgba($kk-white, 0.2);
-              margin-right: 5px;
-              transition: background-color 0.3s ease-in-out, width 0.2s ease-in-out;
-            }
-
-            &:hover {
-              color: $kk-white;
-
-              &::before {
-                width: 15px;
-                background-color: $kk-white;
-              }
-            }
-          }
+        &:hover .kk-ic--social {
+          fill: $kk-white;
         }
       }
     }
-  }
 
-  .kk-h4 {
-    font-family: $kk-ff-special;
-    font-size: 20px;
-    font-weight: 600;
-    color: rgba($kk-white, 0.2);
-    margin-bottom: 20px;
+    .kk-copyrights {
+      display: flex;
+      grid-area: copyrights;
+      font-family: $kk-ff-basic;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      color: rgba($kk-white, 0.2);
+    }
   }
 }

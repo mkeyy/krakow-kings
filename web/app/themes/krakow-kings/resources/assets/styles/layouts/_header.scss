@@ -176,7 +176,7 @@
       margin: 15px 0;
 
       a {
-        @include kk-fancy-underline(3px);
+        @include kk-underline-effect(3px);
 
         position: relative;
         display: block;

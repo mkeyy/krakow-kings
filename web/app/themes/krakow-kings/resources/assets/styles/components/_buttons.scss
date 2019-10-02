@@ -30,8 +30,9 @@
 .kk-btn--arrow {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   border: 1px solid $primary-color;
   color: $primary-color;
   padding: 5px;
@@ -39,10 +40,12 @@
   span {
     @include kk-size(0, auto);
 
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     line-height: 1;
+    text-transform: uppercase;
+    color: $primary-color;
     opacity: 0;
     text-align: left;
     transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out;
